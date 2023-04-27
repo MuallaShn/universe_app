@@ -11,6 +11,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final String url="assets/images/profil.png";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           children: [
             Image.asset(
-              "assets/images/profil.png",
+              url,
             ),
             SizedBox(
               height: ProjectHeight.underProfileHeight,
@@ -43,9 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 hintText: ProjectTitles.ProfileSurname,
               ),
             ),
-
           ],
-
         ),
       ),
 

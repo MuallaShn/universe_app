@@ -41,40 +41,18 @@ class _MainPageState extends State<MainPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //explore title
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: ProjectWidht.normalWidht,
-                    top: ProjectHeight.firstHeight),
-                child: Text(
-                  ProjectTitles.MainPageTitle,
-                  style: Theme.of(context).textTheme.headline4?.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: ProjectColors.white,
-                      ),
-                ),
-              ),
+              _titlePadding(context),
+              _writingPadding(context),
 
-              //lets see...
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: ProjectWidht.normalWidht,
-                    top: ProjectWidht.smallWidht),
-                child: Text(
-                  ProjectTitles.MainPageSubtitle,
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                        color: ProjectColors.white30,
-                      ),
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: MainPageOptionsContainer(),
               ),
 
+              //Boxes
               Container(
-                width: double.infinity,
-                height: 490,
+                width: ProjectWidht.infinityWidht,
+                height: ProjectHeight.containerHeight,
                 child: GridView.builder(
                   itemCount: 4,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -135,6 +113,33 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
+
+  Padding _writingPadding(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+          left: ProjectWidht.normalWidht, top: ProjectWidht.smallWidht),
+      child: Text(
+        ProjectTitles.MainPageSubtitle,
+        style: Theme.of(context).textTheme.bodyText2?.copyWith(
+              color: ProjectColors.white30,
+            ),
+      ),
+    );
+  }
+
+  Padding _titlePadding(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+          left: ProjectWidht.normalWidht, top: ProjectHeight.firstHeight),
+      child: Text(
+        ProjectTitles.MainPageTitle,
+        style: Theme.of(context).textTheme.headline4?.copyWith(
+              fontWeight: FontWeight.w500,
+              color: ProjectColors.white,
+            ),
+      ),
+    );
+  }
 }
 
 //kutucukların designı
@@ -153,8 +158,7 @@ class PlanetWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(3.0),
       child: Container(
-        width: double.infinity,
-        height: 490,
+        width: ProjectWidht.infinityWidht,
         decoration: BoxDecoration(
           color: ProjectColors.deepPurple,
           borderRadius: BorderRadius.circular(10),
@@ -162,27 +166,27 @@ class PlanetWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Center(
-              child: Column(
-                children: [
-                  Container(
-                    child: Image(
-                      fit: BoxFit.contain,
-                      image: AssetImage(planetImage),
-                    ),
+            child: Column(
+              children: [
+                Container(
+                  height: ProjectHeight.boxContainerHeight,
+                  child: Image(
+                    fit: BoxFit.contain,
+                    image: AssetImage(planetImage),
                   ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Text(planetName,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontStyle: FontStyle.italic)),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: ProjectHeight.smallHeight,
+                ),
+                Text(planetName,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.italic)),
+              ],
             ),
           ),
         ),
-
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:universe/consts/Project_widht_and_height.dart';
 import 'package:universe/datas/general_datas.dart';
 import '../consts/Project_Colors.dart';
 
@@ -14,7 +15,7 @@ class _MainPageOptionsContainerState extends State<MainPageOptionsContainer> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: ProjectHeight.toggleHeight,
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -32,7 +33,7 @@ class _MainPageOptionsContainerState extends State<MainPageOptionsContainer> {
                */
             },
             child: Container(
-              width: 70,
+              width: ProjectWidht.toggleWidht,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: ProjectDatas.optionsDatasController[index] == true
@@ -42,7 +43,7 @@ class _MainPageOptionsContainerState extends State<MainPageOptionsContainer> {
               child: Center(
                 child: Text(
                   ProjectDatas.options[index],
-                  style: Theme.of(context).textTheme.bodyText1?.copyWith(),
+                  style: Theme.of(context).textTheme.bodyText1
                 ),
               ),
             ),

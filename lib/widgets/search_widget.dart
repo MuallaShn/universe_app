@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universe/consts/Project_Colors.dart';
 import 'package:universe/consts/project_titles_and_urls.dart';
-
 import '../main_Page.dart';
 
 class SearchPage extends StatelessWidget {
@@ -45,19 +44,23 @@ class _SearchState extends State<Search> {
         key: formkey,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.search),
-                  hintText: ProjectTitles.SearchText,
-                ),
-              ),
-            ),
+            _iconPadding(),
           ],
         ),
       ),
     );
+  }
+
+  Padding _iconPadding() {
+    return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
+                hintText: ProjectTitles.SearchText,
+              ),
+            ),
+          );
   }
 }

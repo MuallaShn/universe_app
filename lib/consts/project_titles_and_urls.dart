@@ -1,5 +1,3 @@
-
-
 class ProjectTitles{
   static const MainPageTitle="Explore";
   static const MainPageSubtitle="Let's See What's in Space";
