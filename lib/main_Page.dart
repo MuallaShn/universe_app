@@ -25,10 +25,10 @@ class _MainPageState extends State<MainPage> {
     "assets/images/satürn.png",
   ];
   final List<String> planetName = [
-    "Jüpiter",
+    "Jupiter",
     "Pluto",
-    "Dünya",
-    "Satürn",
+    "Earth",
+    "Saturn",
   ];
 
   @override
