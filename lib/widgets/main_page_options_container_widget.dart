@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:universe/consts/Project_padding_and_radius.dart';
 import 'package:universe/consts/Project_widht_and_height.dart';
 import 'package:universe/datas/general_datas.dart';
 import '../consts/Project_Colors.dart';
@@ -22,7 +23,7 @@ class _MainPageOptionsContainerState extends State<MainPageOptionsContainer> {
         shrinkWrap: true,
         itemCount: ProjectDatas.optionsDatasController.length,
         itemBuilder: (context, index) => Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(ProjectPadding.middlePadding),
           child: InkWell(
             onTap: () {
               _toggleTheMenuBuilderColor(index);
@@ -35,7 +36,7 @@ class _MainPageOptionsContainerState extends State<MainPageOptionsContainer> {
             child: Container(
               width: ProjectWidht.toggleWidht,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(ProjectRadius.normalRadius),
                   color: ProjectDatas.optionsDatasController[index] == true
                       ? ProjectColors.blueAccent
                       : ProjectColors.indigo,

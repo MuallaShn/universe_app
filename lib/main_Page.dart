@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universe/consts/Project_Colors.dart';
+import 'package:universe/consts/Project_padding_and_radius.dart';
 import 'package:universe/consts/Project_widht_and_height.dart';
 import 'package:universe/consts/project_titles_and_urls.dart';
 import 'package:universe/widgets/main_page_options_container_widget.dart';
@@ -37,7 +38,7 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: ProjectColors.blackPearl,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(ProjectPadding.small2Padding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -45,7 +46,8 @@ class _MainPageState extends State<MainPage> {
               _writingPadding(context),
 
               Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding:
+                    const EdgeInsets.only(top: ProjectPadding.small2Padding),
                 child: MainPageOptionsContainer(),
               ),
 
@@ -56,8 +58,8 @@ class _MainPageState extends State<MainPage> {
                 child: GridView.builder(
                   itemCount: 4,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisSpacing: 15,
-                      mainAxisSpacing: 15,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
                       crossAxisCount: 2),
                   itemBuilder: (context, index) => SafeArea(
                     child: PlanetWidget(
@@ -76,28 +78,25 @@ class _MainPageState extends State<MainPage> {
                   children: [
                     ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MainPage()));
+                          _navigatorManagerPush(context, widget: MainPage());
                         },
                         icon: Icon(Icons.border_all_outlined),
                         label: Text(ProjectTitles.MainPageTitle),
                         style: ElevatedButton.styleFrom(
                             primary: ProjectColors.blackPearl)),
-                    SizedBox(height: 10),
+                    SizedBox(height: ProjectHeight.smallHeight),
                     ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => SearchPage()));
+                          _navigatorManagerPush(context, widget: SearchPage());
                         },
                         icon: Icon(Icons.search),
                         label: Text(ProjectTitles.SecondButtonTitle),
                         style: ElevatedButton.styleFrom(
                             primary: ProjectColors.blackPearl)),
-                    SizedBox(height: 10),
+                    SizedBox(height: ProjectHeight.smallHeight),
                     ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ProfilePage()));
+                          _navigatorManagerPush(context, widget:ProfilePage());
                         },
                         icon: Icon(Icons.person),
                         label: Text(ProjectTitles.ThirdButtonTitle),
@@ -112,6 +111,11 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
+  }
+
+   _navigatorManagerPush(BuildContext context,{required Widget widget}) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => widget));
   }
 
   Padding _writingPadding(BuildContext context) {
@@ -156,15 +160,15 @@ class PlanetWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(3.0),
+      padding: EdgeInsets.all(ProjectPadding.small1Padding),
       child: Container(
         width: ProjectWidht.infinityWidht,
         decoration: BoxDecoration(
           color: ProjectColors.deepPurple,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(ProjectRadius.normalRadius),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(ProjectPadding.bigPadding),
           child: Center(
             child: Column(
               children: [

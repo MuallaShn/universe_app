@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universe/consts/Project_Colors.dart';
+import 'package:universe/consts/Project_padding_and_radius.dart';
 import 'package:universe/consts/project_titles_and_urls.dart';
 import '../main_Page.dart';
 
@@ -39,7 +40,7 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(ProjectPadding.middlePadding),
       child: Form(
         key: formkey,
         child: Column(
@@ -53,14 +54,16 @@ class _SearchState extends State<Search> {
 
   Padding _iconPadding() {
     return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.search),
-                hintText: ProjectTitles.SearchText,
-              ),
-            ),
-          );
+      padding: const EdgeInsets.all(ProjectPadding.middlePadding),
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                  Radius.circular(ProjectRadius.normalRadius))),
+          prefixIcon: Icon(Icons.search),
+          hintText: ProjectTitles.SearchText,
+        ),
+      ),
+    );
   }
 }
